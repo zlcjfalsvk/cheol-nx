@@ -11,7 +11,7 @@ COPY yarn.lock ./
 RUN yarn install
 COPY . .
 RUN nx build backend --prod
-RUN #npm prune --production
+RUN yarn install --production
 
 # multi-stage-build
 FROM node:14.15
