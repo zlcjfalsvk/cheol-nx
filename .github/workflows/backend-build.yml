@@ -4,6 +4,8 @@ on:
     branches:
       - master
       - develop
+    tags:
+      - '*'
 jobs:
   nx-backend-build:
     runs-on: ubuntu-20.04
