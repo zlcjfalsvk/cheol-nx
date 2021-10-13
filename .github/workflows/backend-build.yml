@@ -43,7 +43,7 @@ jobs:
 
   nx-backend-deploy:
     needs:
-      - build
+      - nx-backend-build
     runs-on:
       - self-hosted
     steps:
