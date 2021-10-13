@@ -1,9 +1,8 @@
-name: cheol nx-backend build
+name: nx-backend build and deploy
 on:
   push:
     branches:
       - master
-      - develop
     tags:
       - 'v*'
 jobs:
@@ -56,5 +55,5 @@ jobs:
       -
         name: Docker run
         run: |
-          docker ps -q --filter "name=cheolcheol/nx-backend" | grep -q . && docker stop cheolcheol/nx-backend && docker rm -fv cheolcheol/nx-backend
+          docker ps -q --filter "name=nx-backend" | grep -q . && docker stop nx-backend && docker rm -fv nx-backend
           docker run -d -p 3333:3333 --name nx-backend --restart always cheolcheol/nx-backend:latest
