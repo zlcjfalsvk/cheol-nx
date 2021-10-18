@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'backend',
-  preset: '../../jest.preset.js',
+  displayName: 'backend-basic',
+  preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/backend',
+  coverageDirectory: '../../../coverage/apps/backend/basic',
 };

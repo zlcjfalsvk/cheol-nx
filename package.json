@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "backend:serve": "nx serve backend",
-    "backend:build": "nx build backend --prod"
+    "basic:serve": "nx serve backend-basic",
+    "basic:build": "nx build backend-basic --prod"
   },
   "private": true,
   "dependencies": {

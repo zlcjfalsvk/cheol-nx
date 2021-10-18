@@ -30,7 +30,7 @@
     "api-interfaces": {
       "tags": []
     },
-    "backend": {
+    "backend-basic": {
       "tags": []
     },
     "common": {
