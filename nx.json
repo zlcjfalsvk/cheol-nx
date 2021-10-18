@@ -29,6 +29,9 @@
   "projects": {
     "backend": {
       "tags": []
+    },
+    "common": {
+      "tags": []
     }
   }
 }

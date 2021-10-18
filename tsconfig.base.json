@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@cheol-nx/common": ["libs/common/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
