@@ -1,1 +1,2 @@
-export * from './lib/api-interfaces';
+export * from './api-response.interface';
+export * from './empty-response.interface';
