@@ -1,19 +1,41 @@
 {
   "version": 2,
   "projects": {
-    "backend": {
-      "root": "apps/backend",
-      "sourceRoot": "apps/backend/src",
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-interfaces"],
+          "options": {
+            "jestConfig": "libs/api-interfaces/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-basic": {
+      "root": "apps/backend/basic",
+      "sourceRoot": "apps/backend/basic/src",
       "projectType": "application",
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/backend",
-            "main": "apps/backend/src/main.ts",
-            "tsConfig": "apps/backend/tsconfig.app.json",
-            "assets": ["apps/backend/src/assets"]
+            "outputPath": "dist/apps/backend/basic",
+            "main": "apps/backend/basic/src/main.ts",
+            "tsConfig": "apps/backend/basic/tsconfig.app.json",
+            "assets": ["apps/backend/basic/src/assets"]
           },
           "configurations": {
             "production": {
@@ -22,8 +44,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/backend/src/environments/environment.ts",
-                  "with": "apps/backend/src/environments/environment.prod.ts"
+                  "replace": "apps/backend/basic/src/environments/environment.ts",
+                  "with": "apps/backend/basic/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -32,21 +54,43 @@
         "serve": {
           "executor": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "backend:build"
+            "buildTarget": "backend-basic:build"
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/backend/**/*.ts"]
+            "lintFilePatterns": ["apps/backend/basic/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/backend"],
+          "outputs": ["coverage/apps/backend/basic"],
           "options": {
-            "jestConfig": "apps/backend/jest.config.js",
+            "jestConfig": "apps/backend/basic/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "common": {
+      "root": "libs/common",
+      "sourceRoot": "libs/common/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/common/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/common"],
+          "options": {
+            "jestConfig": "libs/common/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -56,5 +100,5 @@
   "cli": {
     "defaultCollection": "@nrwl/nest"
   },
-  "defaultProject": "backend"
+  "defaultProject": "backend-basic"
 }

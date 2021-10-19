@@ -27,7 +27,13 @@
     ]
   },
   "projects": {
-    "backend": {
+    "api-interfaces": {
+      "tags": []
+    },
+    "backend-basic": {
+      "tags": []
+    },
+    "common": {
       "tags": []
     }
   }

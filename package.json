@@ -3,14 +3,16 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "backend:serve": "nx serve backend",
-    "backend:build": "nx build backend --prod"
+    "basic:serve": "nx serve backend-basic",
+    "basic:build": "nx build backend-basic --prod"
   },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0"
