@@ -30,6 +30,9 @@
     "api-interfaces": {
       "tags": []
     },
+    "aws-infra": {
+      "tags": []
+    },
     "backend-basic": {
       "tags": []
     },
