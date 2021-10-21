@@ -8,16 +8,16 @@ import { Rds } from './us-west-1/stacks/rds';
 config();
 const app = new cdk.App();
 
-new Vpc(app, 'us-west-1-vpc', {
+new Vpc(app, '', {
   env: {
     account: process.env.ACCOUNT,
-    region: 'us-west-1',
+    region: process.env.REGION,
   },
 });
 
-new Rds(app, 'us-west-1-rds', {
+new Rds(app, '', {
   env: {
     account: process.env.ACCOUNT,
-    region: 'us-west-1',
+    region: process.env.REGION,
   },
 });

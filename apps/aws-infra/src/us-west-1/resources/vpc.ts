@@ -29,3 +29,10 @@ export const vpc = (scope: Construct) => {
     ],
   });
 };
+
+// VPC 배포 이후 id를 이용해 가져오기
+export const iVpc = (scope: Construct) => {
+  return ec2.Vpc.fromLookup(scope, 'backendVpc', {
+    vpcId: '{{id}}',
+  });
+};
