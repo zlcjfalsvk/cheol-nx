@@ -4,15 +4,18 @@ import type { ApiResponseInterface } from '@cheol-nx/api-interfaces';
 
 import { BackendAnimalsGetParamDto } from './dtos';
 import { ApiResponseDto } from '../../api-response.dto';
+import { AnimalsService } from './animals.service';
 
 @Controller('animals')
 export class AnimalsController {
+  constructor(private readonly animalsService: AnimalsService) {}
   @Get()
-  hellow(
+  async hellow(
     @Query() param: BackendAnimalsGetParamDto
-  ): ApiResponseInterface<string> {
+  ): Promise<ApiResponseInterface<string>> {
+    const name = await this.animalsService.greeting(param.name);
     return new ApiResponseDto({
-      data: `Hellow ${param.name}`,
+      data: `Hellow ${name}`,
     });
   }
 }
