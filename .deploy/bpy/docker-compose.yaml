@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  build:
+    image: ${IMAGE}:${TAG}
+    build:
+      context: ../../
+      dockerfile: .deploy/bpy/Dockerfile
