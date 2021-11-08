@@ -1,0 +1,26 @@
+service:
+  name: serverless-basic
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ${env:REGION}
+
+
+
+custom:
+  serverless-offline:
+    httpPort: ${env:PORT}
+    noPrependStageInUrl: true
+
+functions:
+  main:
+    handler: ${env:HANDLER}
+    events:
+      - http:
+          method: GET
+          path: '{proxy+}'
