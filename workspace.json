@@ -95,6 +95,10 @@
                 {
                   "replace": "apps/backend/basic/src/environments/environment.ts",
                   "with": "apps/backend/basic/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/backend/basic/src/main.ts",
+                  "with": "apps/backend/basic/src/main.handler.ts"
                 }
               ]
             }
