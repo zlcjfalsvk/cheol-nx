@@ -26,6 +26,8 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 # Install Blender
 ## Enviorment variables
+### Referenced https://github.com/nytimes/rd-blender-docker
+
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 ENV PATH "$PATH:/bin/2.91/python/bin/"
