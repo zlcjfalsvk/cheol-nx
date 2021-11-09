@@ -15,22 +15,12 @@ RUN apt-get update && apt-get install -y \
 	libgl1-mesa-glx \
 	xz-utils
 
-# Install Node
-ENV NODE_VERSION=14.15
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-ENV NVM_DIR=/root/.nvm
-RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
-ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-
 # Install Blender
 ## Enviorment variables
 ### Referenced https://github.com/nytimes/rd-blender-docker
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
-ENV PATH "$PATH:/bin/2.91/python/bin/"
 ENV BLENDER_PATH "/bin/2.91"
 ENV BLENDERPIP "/bin/2.91/python/bin/pip3"
 ENV BLENDERPY "/bin/2.91/python/bin/python3.7m"
@@ -48,4 +38,12 @@ RUN rm -rf ${BLENDER_PATH}/python/lib/python3.7m/site-packages/numpy
 # Must first ensurepip to install Blender pip3 and then new numpy
 RUN ${BLENDERPY} -m ensurepip && ${BLENDERPIP} install --upgrade pip && ${BLENDERPIP} install numpy
 
-CMD bash
+
+# Install Node
+ENV NODE_VERSION=14.15
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+ENV NVM_DIR=/root/.nvm
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
+

@@ -9,7 +9,7 @@ else
   exit 0
 fi
 
-#docker-compose build build
+docker-compose build build
 docker tag $IMAGE:$TAG cheolcheol/$IMAGE:$TAG
 docker tag $IMAGE:$TAG cheolcheol/$IMAGE:latest
 
