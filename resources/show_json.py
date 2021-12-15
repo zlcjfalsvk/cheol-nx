@@ -1,13 +1,14 @@
 import sys
 import json
 
-def main(stringified_json):
-	loadedJson = json.loads(stringified_json)
-	loadedJson = {
-		'name': loadedJson.get('name', '이름 없넹'),
-		'description': loadedJson.get('description', '설명')
+
+def main(stringify_json):
+	loaded_json = json.loads(stringify_json)
+	loaded_json = {
+		'name': loaded_json.get('name', '이름 없넹'),
+		'description': loaded_json.get('description', '설명')
 	}
-	return json.dumps(loadedJson)
+	return json.dumps(loaded_json)
 
 
 if __name__ == "__main__":
