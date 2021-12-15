@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Post, Query } from '@nestjs/common';
 
 import type { ApiResponseInterface } from '@cheol-nx/api-interfaces';
 
@@ -16,6 +16,14 @@ export class AnimalsController {
     const name = await this.animalsService.greeting(param.name);
     return new ApiResponseDto({
       data: `Hellow ${name}`,
+    });
+  }
+
+  @Post()
+  async animalMap(): Promise<ApiResponseInterface<unknown>> {
+    const json = await this.animalsService.showAnimalMap();
+    return new ApiResponseDto<unknown>({
+      data: json,
     });
   }
 }
