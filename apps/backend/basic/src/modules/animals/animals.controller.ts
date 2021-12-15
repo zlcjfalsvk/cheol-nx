@@ -10,7 +10,7 @@ import { AnimalsService } from './animals.service';
 export class AnimalsController {
   constructor(private readonly animalsService: AnimalsService) {}
   @Get()
-  async hellow(
+  async hello(
     @Query() param: BackendAnimalsGetParamDto
   ): Promise<ApiResponseInterface<string>> {
     const name = await this.animalsService.greeting(param.name);
