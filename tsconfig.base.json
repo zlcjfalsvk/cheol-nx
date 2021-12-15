@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@cheol-nx/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@cheol-nx/common": ["libs/common/src/index.ts"]
+      "@cheol-nx/common": ["libs/common/src/index.ts"],
+      "@cheol-nx/backend": ["libs/backend/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
