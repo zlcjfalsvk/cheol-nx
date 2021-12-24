@@ -4,8 +4,7 @@
     "module": "commonjs",
     "types": ["node"]
   },
-  "include": [
-  ],
+  "include": [],
   "references": [
     {
       "path": "tsconfig.spec.json"

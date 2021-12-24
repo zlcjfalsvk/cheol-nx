@@ -8,26 +8,21 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/api-interfaces/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api-interfaces"
-          ],
+          "outputs": ["coverage/libs/api-interfaces"],
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "aws-infra": {
       "projectType": "application",
@@ -58,15 +53,14 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/aws-infra"
-          ],
+          "outputs": ["coverage/apps/aws-infra"],
           "options": {
             "jestConfig": "apps/aws-infra/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "backend-basic": {
       "root": "apps/backend/basic",
@@ -75,16 +69,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/backend/basic",
             "main": "apps/backend/basic/src/main.ts",
             "tsConfig": "apps/backend/basic/tsconfig.app.json",
-            "assets": [
-              "apps/backend/basic/src/assets"
-            ]
+            "assets": ["apps/backend/basic/src/assets"]
           },
           "configurations": {
             "production": {
@@ -112,26 +102,21 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/backend/basic/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/backend/basic/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/backend/basic"
-          ],
+          "outputs": ["coverage/apps/backend/basic"],
           "options": {
             "jestConfig": "apps/backend/basic/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "common": {
       "root": "libs/common",
@@ -140,30 +125,21 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/common/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/common/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/common"
-          ],
+          "outputs": ["coverage/libs/common"],
           "options": {
             "jestConfig": "libs/common/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/nest"
-  },
-  "defaultProject": "backend-basic"
+  }
 }
