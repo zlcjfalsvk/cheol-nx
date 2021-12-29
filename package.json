@@ -5,6 +5,7 @@
   "scripts": {
     "basic:serve": "nx serve backend-basic",
     "basic:build": "nx build backend-basic --prod",
+    "basic-socket:serve": "nx serve backend-basic-socket",
     "serverless:serve": "nx build backend-basic --prod && serverless offline -c serverless.yml"
   },
   "private": true,
@@ -13,6 +14,8 @@
     "@nestjs/common": "^8.2.4",
     "@nestjs/core": "^8.2.4",
     "@nestjs/platform-express": "^8.2.4",
+    "@nestjs/platform-socket.io": "^8.2.4",
+    "@nestjs/websockets": "^8.2.4",
     "@vendia/serverless-express": "^4.5.2",
     "aws-cdk": "^1.128.0",
     "aws-lambda": "^1.0.7",
@@ -42,6 +45,8 @@
     "@typescript-eslint/parser": "~4.31.1",
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-prettier": "^3.3.1",
     "jest": "27.2.3",
     "prettier": "^2.3.1",
     "serverless-dotenv-plugin": "^3.10.0",

@@ -118,6 +118,58 @@
       },
       "tags": []
     },
+    "backend-basic-socket": {
+      "root": "apps/backend/basic-socket",
+      "sourceRoot": "apps/backend/basic-socket/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/backend/basic-socket",
+            "main": "apps/backend/basic-socket/src/main.ts",
+            "tsConfig": "apps/backend/basic-socket/tsconfig.app.json",
+            "assets": ["apps/backend/basic-socket/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/basic-socket/src/environments/environment.ts",
+                  "with": "apps/backend/basic-socket/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend-basic-socket:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/backend/basic-socket/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/backend/basic-socket"],
+          "options": {
+            "jestConfig": "apps/backend/basic-socket/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "common": {
       "root": "libs/common",
       "sourceRoot": "libs/common/src",
@@ -135,6 +187,29 @@
           "outputs": ["coverage/libs/common"],
           "options": {
             "jestConfig": "libs/common/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "socket-interfaces": {
+      "root": "libs/socket-interfaces",
+      "sourceRoot": "libs/socket-interfaces/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/socket-interfaces/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/socket-interfaces"],
+          "options": {
+            "jestConfig": "libs/socket-interfaces/jest.config.js",
             "passWithNoTests": true
           }
         }
