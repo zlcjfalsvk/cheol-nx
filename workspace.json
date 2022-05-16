@@ -170,6 +170,58 @@
       },
       "tags": []
     },
+    "backend-basic-stand-alone": {
+      "root": "apps/backend/basic-stand-alone",
+      "sourceRoot": "apps/backend/basic-stand-alone/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/backend/basic-stand-alone",
+            "main": "apps/backend/basic-stand-alone/src/main.ts",
+            "tsConfig": "apps/backend/basic-stand-alone/tsconfig.app.json",
+            "assets": ["apps/backend/basic-stand-alone/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/basic-stand-alone/src/environments/environment.ts",
+                  "with": "apps/backend/basic-stand-alone/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend-basic-stand-alone:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/backend/basic-stand-alone/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/backend/basic-stand-alone"],
+          "options": {
+            "jestConfig": "apps/backend/basic-stand-alone/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "common": {
       "root": "libs/common",
       "sourceRoot": "libs/common/src",
