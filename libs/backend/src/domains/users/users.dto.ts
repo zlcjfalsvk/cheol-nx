@@ -1,16 +1,18 @@
-import { Type } from 'class-transformer';
+import {  Type } from 'class-transformer';
+
+// Hoisting
+class UserDetails {
+  address: string = 'bbbb';
+  phoneNumber: string = 'asdfadsf';
+
+}
 
 export class UsersDto {
-  id: string;
-  name: string;
-
+  id: string = '';
+  name: string = '';
 
   @Type(() => UserDetails)
-  details: UserDetails
+  details:  UserDetails = new UserDetails()
 }
 
 
-class UserDetails {
-  address: string;
-  phoneNumber: string;
-}
